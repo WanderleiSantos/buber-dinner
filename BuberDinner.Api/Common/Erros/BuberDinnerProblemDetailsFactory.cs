@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices.JavaScript;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -39,7 +40,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 
         return problemDetails;
     }
-    
+
     public override ValidationProblemDetails CreateValidationProblemDetails(
         HttpContext httpContext,
         ModelStateDictionary modelStateDictionary,
@@ -90,8 +91,11 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         {
             problemDetails.Extensions["traceId"] = traceId;
         }
-        
-        problemDetails.Extensions.Add("customprop", "customvalue");
-        
+
+        var errors = httpContext?.Items["errors"] as List<Error>;
+        if (errors is not null)
+        {
+            problemDetails.Extensions.Add("errorsCode", errors.Select(e => e.Code));
+        }
     }
 }
