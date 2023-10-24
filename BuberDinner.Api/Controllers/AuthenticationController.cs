@@ -6,11 +6,13 @@ using BuberDinner.Domain.Common.Erros;
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberDinner.Api.Controllers;
 
 [Route("auth")]
+[AllowAnonymous]
 public class AuthenticationController : ApiController
 {
     private readonly ISender _mediator;
@@ -39,14 +41,14 @@ public class AuthenticationController : ApiController
     {
         var query = _mapper.Map<LoginQuery>(request);
         var authResult = await _mediator.Send(query);
-        
-        if(authResult.IsError && authResult.FirstError == Errors.Authentication.InvalidCredentials)
+
+        if (authResult.IsError && authResult.FirstError == Errors.Authentication.InvalidCredentials)
         {
             return Problem(
                 statusCode: StatusCodes.Status401Unauthorized,
                 title: authResult.FirstError.Description);
         }
-        
+
         return authResult.Match(
             authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
             errors => Problem(errors));
