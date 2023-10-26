@@ -10,4 +10,22 @@
       <PackageReference Include="ErrorOr" Version="1.3.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="MediatR.Contracts">
+        <HintPath>..\..\..\.nuget\packages\mediatr.contracts\2.0.1\lib\netstandard2.0\MediatR.Contracts.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="User\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="User\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="User\**" />
+    </ItemGroup>
+
 </Project>
