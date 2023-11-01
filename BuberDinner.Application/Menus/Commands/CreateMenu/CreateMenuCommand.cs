@@ -4,20 +4,17 @@ using MediatR;
 
 namespace BuberDinner.Application.Menus.Commands.CreateMenu;
 
-public record CreateMenuCommand
-(
+public record CreateMenuCommand(
+    Guid HostId,
     string Name,
     string Description,
-    List<MenuSectionCommand> Sections
-) : IRequest<ErrorOr<Menu>>;
+    List<MenuSectionCommand> Sections) : IRequest<ErrorOr<Menu>>;
 
 public record MenuSectionCommand(
     string Name,
     string Description,
-    List<MenuItemCommand> Items
-);
+    List<MenuItemCommand> Items);
 
 public record MenuItemCommand(
     string Name,
-    string Description
-);
+    string Description);
