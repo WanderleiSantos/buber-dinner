@@ -2,14 +2,14 @@ using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Common.ValueObjects;
 using BuberDinner.Domain.Dinner.ValueObjects;
 using BuberDinner.Domain.Hosts.ValueObjects;
-using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.MenuReviews.ValueObjects;
 using BuberDinner.Domain.Menus.Entities;
 using BuberDinner.Domain.Menus.Events;
+using BuberDinner.Domain.Menus.ValueObjects;
 
 namespace BuberDinner.Domain.Menus;
 
-public sealed class Menu : AggregateRoot<MenuId, Guid>
+public sealed class Menu : AggregateRoot<MenuId>
 {
     private readonly List<MenuSection> _sections = new();
     private readonly List<DinnerId> _dinnerIds = new();
@@ -61,8 +61,8 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
 
         return menu;
     }
-
- 
-    private Menu() { }
+    
+    private Menu() 
+    { }
  
 }

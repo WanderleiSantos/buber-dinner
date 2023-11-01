@@ -1,13 +1,12 @@
 ﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Guests.ValueObjects;
 
-namespace BuberDinner.Domain;
+namespace BuberDinner.Domain.Guests;
 
-public sealed class Guest : AggregateRoot<GuestId, Guid>
+public sealed class Guest : AggregateRoot<GuestId>
 {
     public Guest(GuestId id) : base(id)
     {
     }
- 
-    private Guest() { }
- 
+    
 }

@@ -1,18 +1,19 @@
 using BuberDinner.Domain.Bills.ValueObjects;
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Dinner.ValueObjects;
+using BuberDinner.Domain.Guests.ValueObjects;
 using BuberDinner.Domain.Hosts.ValueObjects;
 
 namespace BuberDinner.Domain.Bills;
 
-public sealed class Bill : AggregateRoot<BillId, Guid>
+public sealed class Bill : AggregateRoot<BillId>
 {
-    public DinnerId DinnerId { get; }
-    public GuestId GuestId { get; }
-    public HostId HostId { get; }
-    public Price Price { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DinnerId DinnerId { get; private set;}
+    public GuestId GuestId { get;private set; }
+    public HostId HostId { get;private set; }
+    public Price Price { get;private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set;}
 
     private Bill(
         BillId id,
@@ -44,7 +45,5 @@ public sealed class Bill : AggregateRoot<BillId, Guid>
             DateTime.UtcNow);
     }
  
-    private Bill()
-    {
-    }
+  
 }

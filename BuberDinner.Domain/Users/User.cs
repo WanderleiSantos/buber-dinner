@@ -2,7 +2,7 @@
 
 namespace BuberDinner.Domain.Users;
 
-public sealed class User : AggregateRoot<UserId, Guid>
+public sealed class User : AggregateRoot<UserId>
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
@@ -46,6 +46,5 @@ public sealed class User : AggregateRoot<UserId, Guid>
     }
 
  
-    private User() { }
  
 }

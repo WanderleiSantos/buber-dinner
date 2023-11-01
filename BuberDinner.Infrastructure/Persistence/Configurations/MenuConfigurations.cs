@@ -1,5 +1,4 @@
 using BuberDinner.Domain.Hosts.ValueObjects;
-using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.Menus;
 using BuberDinner.Domain.Menus.Entities;
 using BuberDinner.Domain.Menus.ValueObjects;

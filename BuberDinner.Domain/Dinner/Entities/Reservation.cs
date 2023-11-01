@@ -1,5 +1,6 @@
 ﻿using BuberDinner.Domain.Bills.ValueObjects;
 using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Guests.ValueObjects;
 
 namespace BuberDinner.Domain;
 

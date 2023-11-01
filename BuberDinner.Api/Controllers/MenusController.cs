@@ -2,11 +2,13 @@ using BuberDinner.Application.Menus.Commands.CreateMenu;
 using BuberDinner.Contracts.Menus;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberDinner.Api.Controllers;
 
 [Route("hosts/{hostId}/menus")]
+[AllowAnonymous]
 public class MenusController : ApiController
 {
     private readonly IMapper _mapper;
