@@ -1,14 +1,16 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Menu.ValueObjects;
+using BuberDinner.Domain.Menus.ValueObjects;
 
 namespace BuberDinner.Domain.Menus.Entities;
 
-public class MenuItem : Entity<MenuItemId>
+public sealed class MenuItem : Entity<MenuItemId>
 {
     public string Name { get; }
     public string Description { get; }
 
-    private MenuItem(MenuItemId menuItemId, string name, string description) : base(menuItemId)
+    private MenuItem(MenuItemId menuItemId, string name, string description)
+        : base(menuItemId)
     {
         Name = name;
         Description = description;
@@ -18,4 +20,8 @@ public class MenuItem : Entity<MenuItemId>
     {
         return new(MenuItemId.CreateUnique(), name, description);
     }
+
+#pragma warning disable CS8618
+    private MenuItem() { }
+#pragma warning restore CS8618
 }

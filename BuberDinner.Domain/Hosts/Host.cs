@@ -1,9 +1,10 @@
 ﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.ValueObjects;
 using BuberDinner.Domain.Dinner.ValueObjects;
 using BuberDinner.Domain.Hosts.ValueObjects;
 using BuberDinner.Domain.Menu.ValueObjects;
 
-namespace BuberDinner.Domain;
+namespace BuberDinner.Domain.Hosts;
 
 public sealed class Host : AggregateRoot<HostId, Guid>
 {
@@ -60,7 +61,7 @@ public sealed class Host : AggregateRoot<HostId, Guid>
             DateTime.UtcNow);
     }
 
- 
+#pragma warning disable CS8618
     private Host() { }
- 
+#pragma warning restore CS8618
 }

@@ -20,13 +20,14 @@ public class MenusController : ApiController
 
     [HttpPost]
     public async Task<IActionResult> CreateMenu(
-        CreateMenuRequest request, Guid hostId
-    )
+        CreateMenuRequest request,
+        Guid hostId)
     {
         var command = _mapper.Map<CreateMenuCommand>((request, hostId));
+
         var createMenuResult = await _mediator.Send(command);
-        
-        return createMenuResult.Match(menu => Ok(_mapper.Map<MenuResponse>(menu)),
+        return createMenuResult.Match(
+            menu => Ok(_mapper.Map<MenuResponse>(menu)),
             errors => Problem(errors));
     }
 }
