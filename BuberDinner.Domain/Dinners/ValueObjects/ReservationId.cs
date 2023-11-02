@@ -1,22 +1,22 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Bills.ValueObjects;
+namespace BuberDinner.Domain.Dinners.ValueObjects;
 
-public sealed class BillId : AggregateRootId<Guid>
+public sealed class ReservationId : ValueObject
 {
-    public override Guid Value { get; protected set; }
+    public Guid Value { get; }
 
-    private BillId(Guid value)
+    private ReservationId(Guid value)
     {
         Value = value;
     }
 
-    public static BillId CreateUnique()
+    public static ReservationId CreateUnique()
     {
         return new(Guid.NewGuid());
     }
 
-    public static BillId Create(Guid value)
+    public static ReservationId Create(Guid value)
     {
         return new(value);
     }

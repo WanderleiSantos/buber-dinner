@@ -3,8 +3,8 @@ using BuberDinner.Contracts.Menus;
 using BuberDinner.Domain.Menus;
 using Mapster;
 
-using MenuSection = BuberDinner.Domain.Menus.Entities.MenuSection;
-using MenuItem = BuberDinner.Domain.Menus.Entities.MenuItem;
+using MenuSection = BuberDinner.Domain.Menus.Entites.MenuSection;
+using MenuItem = BuberDinner.Domain.Menus.Entites.MenuItem;
 
 namespace BuberDinner.Api.Common.Mapping;
 
@@ -23,10 +23,8 @@ public class MenuMappingConfig : IRegister
             .Map(dest => dest.DinnerIds, src => src.DinnerIds.Select(dinnerId => dinnerId.Value))
             .Map(dest => dest.MenuReviewIds, src => src.MenuReviewIds.Select(menuReviewId => menuReviewId.Value));
 
-        config.NewConfig<MenuSection, MenuSectionResponse>()
-            .Map(dest => dest.Id, src => src.Id.Value);
+        config.NewConfig<MenuSection, MenuSectionResponse>().Map(dest => dest.Id, src => src.Id.Value);
 
-        config.NewConfig<MenuItem, MenuItemResponse>()
-            .Map(dest => dest.Id, src => src.Id.Value);
+        config.NewConfig<MenuItem, MenuItemResponse>().Map(dest => dest.Id, src => src.Id.Value);
     }
 }

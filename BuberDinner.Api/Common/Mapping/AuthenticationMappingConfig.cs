@@ -1,6 +1,6 @@
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Contracts.Authentication;
-using BuberDinner.Domain;
+using BuberDinner.Domain.Users.ValueObjects;
 using Mapster;
 
 namespace BuberDinner.Api.Common.Mapping;

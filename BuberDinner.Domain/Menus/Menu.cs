@@ -1,22 +1,22 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Common.ValueObjects;
-using BuberDinner.Domain.Dinner.ValueObjects;
+using BuberDinner.Domain.Dinners.ValueObjects;
 using BuberDinner.Domain.Hosts.ValueObjects;
-using BuberDinner.Domain.MenuReviews.ValueObjects;
-using BuberDinner.Domain.Menus.Entities;
-using BuberDinner.Domain.Menus.Events;
+using BuberDinner.Domain.Menus.Entites;
 using BuberDinner.Domain.Menus.ValueObjects;
+using BuberDinner.Domain.MenuReview.ValueObjects;
+using BuberDinner.Domain.Menus.Events;
 
 namespace BuberDinner.Domain.Menus;
 
-public sealed class Menu : AggregateRoot<MenuId>
+public sealed class Menu : AggregateRoot<MenuId, Guid>
 {
     private readonly List<MenuSection> _sections = new();
     private readonly List<DinnerId> _dinnerIds = new();
     private readonly List<MenuReviewId> _menuReviewIds = new();
     public string Name { get; private set; }
     public string Description { get; private set; }
-    public AverageRating AverageRating { get; private set; }
+    public AverageRating AverageRating { get; }
 
     public IReadOnlyList<MenuSection> Sections => _sections.AsReadOnly();
 
@@ -61,8 +61,8 @@ public sealed class Menu : AggregateRoot<MenuId>
 
         return menu;
     }
-    
-    private Menu() 
-    { }
- 
+
+#pragma warning disable CS8618
+    private Menu() { }
+#pragma warning restore CS8618
 }

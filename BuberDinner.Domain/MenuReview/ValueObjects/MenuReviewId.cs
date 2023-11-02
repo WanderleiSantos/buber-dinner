@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.MenuReviews.ValueObjects;
+namespace BuberDinner.Domain.MenuReview.ValueObjects;
 
 public sealed class MenuReviewId : AggregateRootId<Guid>
 {

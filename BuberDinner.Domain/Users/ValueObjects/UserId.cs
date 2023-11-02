@@ -1,6 +1,6 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain;
+namespace BuberDinner.Domain.Users.ValueObjects;
 
 public sealed class UserId : AggregateRootId<Guid>
 {

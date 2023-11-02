@@ -1,7 +1,7 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Menus.ValueObjects;
 
-namespace BuberDinner.Domain.Menus.Entities;
+namespace BuberDinner.Domain.Menus.Entites;
 
 public sealed class MenuSection : Entity<MenuSectionId>
 {

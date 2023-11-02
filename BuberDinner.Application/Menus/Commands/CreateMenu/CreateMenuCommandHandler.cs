@@ -1,8 +1,7 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain;
 using BuberDinner.Domain.Hosts.ValueObjects;
 using BuberDinner.Domain.Menus;
-using BuberDinner.Domain.Menus.Entities;
+using BuberDinner.Domain.Menus.Entites;
 using ErrorOr;
 using MediatR;
 
